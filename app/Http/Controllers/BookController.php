@@ -53,7 +53,7 @@ class BookController extends Controller
             return new BookResource($book);
         }
         else{
-            return response()->json(['message' => 'This book does not exist'], 404);
+            return response()->json(['message' => 'SORRY, WE COULD NOT FIND THE BOOK'], 404);
         }
     }
     /*public function show(Book $book)   //Author represente le Model//
