@@ -40,13 +40,18 @@ class GenreController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Genre $genre               // permet d'appliquer la fonction show//
+     * @param  int $id              // permet d'appliquer la fonction show  @p Genre $genre //
      * @return \Illuminate\Http\Response
      */
-    public function show(Genre $genre)   //Author represente le Model//
+    public function show($id)
     {
-        return new GenreResource($genre);
-        //return response ()->json($book, 200);
+        $genre =  Genre::find($id);
+        if ($genre){
+            return new GenreResource($genre);
+        }
+        else{
+            return response()->json(['message' => 'SORRY, GENRE MISTAKE'], 404);
+        }
     }
 
     
